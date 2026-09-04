@@ -1,6 +1,20 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "tutorialmod:block/tutorial_block"
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "tutorialmod:block/tutorial_block_on"
+        },
+        "when": true
+      }
+    ],
+    "component": "tutorialmod:is_on",
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "tutorialmod:block/tutorial_block_off"
+    },
+    "property": "minecraft:component"
   }
 }

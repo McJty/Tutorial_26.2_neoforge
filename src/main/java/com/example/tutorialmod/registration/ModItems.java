@@ -9,8 +9,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TutorialMod.MOD_ID);
 
-    public static final DeferredItem<BlockItem> TUTORIAL_BLOCK_ITEM =
-            ITEMS.registerSimpleBlockItem(ModBlocks.TUTORIAL_BLOCK);
+    public static final DeferredItem<BlockItem> TUTORIAL_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(
+            ModBlocks.TUTORIAL_BLOCK,
+            properties -> properties.component(ModDataComponents.IS_ON.get(), false)
+    );
 
     private ModItems() {
     }
