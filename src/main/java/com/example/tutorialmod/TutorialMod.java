@@ -1,6 +1,7 @@
 package com.example.tutorialmod;
 
 import com.example.tutorialmod.datagen.ModDataGenerators;
+import com.example.tutorialmod.integration.top.TopIntegration;
 import com.example.tutorialmod.registration.ModBlockEntities;
 import com.example.tutorialmod.registration.ModBlocks;
 import com.example.tutorialmod.registration.ModDataComponents;
@@ -8,7 +9,9 @@ import com.example.tutorialmod.registration.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.InterModEnqueueEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.slf4j.Logger;
@@ -34,8 +37,15 @@ public final class TutorialMod {
         modEventBus.addListener(TutorialMod::addCreativeTabItems);
         modEventBus.addListener(GatherDataEvent.Client.class, ModDataGenerators::gatherClientData);
         modEventBus.addListener(GatherDataEvent.Server.class, ModDataGenerators::gatherServerData);
+        modEventBus.addListener(TutorialMod::enqueueInterModCommunication);
 
         LOGGER.info("Tutorial Mod is loading!");
+    }
+
+    private static void enqueueInterModCommunication(InterModEnqueueEvent event) {
+        if (ModList.get().isLoaded("theoneprobe")) {
+            TopIntegration.register();
+        }
     }
 
     private static void addCreativeTabItems(BuildCreativeModeTabContentsEvent event) {
