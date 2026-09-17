@@ -48,6 +48,17 @@ base {
 // Minecraft 26.2 uses Java 25.
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
+sourceSets {
+    gameTest {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+configurations {
+    gameTestImplementation.extendsFrom implementation
+    gameTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
 neoForge {
     version = project.neo_version
 
@@ -60,6 +71,12 @@ neoForge {
         server {
             server()
             programArgument '--nogui'
+        }
+
+        gameTestServer {
+            type = "gameTestServer"
+            sourceSet = sourceSets.gameTest
+            gameDirectory = file('build/gametest')
         }
 
         clientData {
@@ -84,6 +101,7 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet(sourceSets.main)
+            sourceSet(sourceSets.gameTest)
         }
     }
 }

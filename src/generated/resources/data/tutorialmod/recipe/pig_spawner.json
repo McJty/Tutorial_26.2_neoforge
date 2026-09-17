@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "B": "minecraft:iron_bars",
+    "C": "minecraft:carrot",
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "B B",
+    "ICI",
+    "IRI"
+  ],
+  "result": {
+    "id": "tutorialmod:pig_spawner"
+  }
+}

@@ -36,6 +36,11 @@ public final class ModBlockLootTableProvider extends LootTableProvider {
 
         @Override
         protected void generate() {
+            for (Block machine : List.of(ModBlocks.GENERATOR.get(), ModBlocks.PIG_SPAWNER.get())) {
+                add(machine, createSingleItemTable(machine).apply(
+                        CopyComponentsFunction.copyComponentsFromBlockEntity(
+                                LootContextParams.BLOCK_ENTITY).include(ModDataComponents.ENERGY.get())));
+            }
             add(
                     ModBlocks.TUTORIAL_BLOCK.get(),
                     createSingleItemTable(ModBlocks.TUTORIAL_BLOCK.get())

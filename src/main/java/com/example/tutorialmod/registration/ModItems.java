@@ -13,6 +13,8 @@ public final class ModItems {
             ModBlocks.TUTORIAL_BLOCK,
             properties -> properties.component(ModDataComponents.IS_ON.get(), false)
     );
+    public static final DeferredItem<BlockItem> GENERATOR = ITEMS.registerSimpleBlockItem(ModBlocks.GENERATOR);
+    public static final DeferredItem<BlockItem> PIG_SPAWNER = ITEMS.registerSimpleBlockItem(ModBlocks.PIG_SPAWNER);
 
     private ModItems() {
     }

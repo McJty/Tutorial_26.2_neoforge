@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "F": "minecraft:furnace",
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "III",
+    "IFI",
+    "IRI"
+  ],
+  "result": {
+    "id": "tutorialmod:generator"
+  }
+}
