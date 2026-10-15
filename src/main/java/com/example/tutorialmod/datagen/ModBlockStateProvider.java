@@ -30,6 +30,7 @@ public final class ModBlockStateProvider extends ModelProvider {
 
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+        new ModMultiblockModelProvider(blockModels, itemModels).registerModels();
         Material baseTexture = new Material(
                 Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "block/block_texture")
         );

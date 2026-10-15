@@ -2,6 +2,8 @@ package com.example.tutorialmod.registration;
 
 import com.example.tutorialmod.TutorialMod;
 import com.example.tutorialmod.block.entity.TutorialBlockEntity;
+import com.example.tutorialmod.block.entity.TeleporterBlockEntity;
+import com.example.tutorialmod.block.entity.ColorControllerBlockEntity;
 import com.example.tutorialmod.block.entity.GeneratorBlockEntity;
 import com.example.tutorialmod.block.entity.PigSpawnerBlockEntity;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -30,6 +32,13 @@ public final class ModBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PigSpawnerBlockEntity>> PIG_SPAWNER =
             BLOCK_ENTITY_TYPES.register("pig_spawner", () -> new BlockEntityType<>(
                     PigSpawnerBlockEntity::new, ModBlocks.PIG_SPAWNER.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TeleporterBlockEntity>> TELEPORTER =
+            BLOCK_ENTITY_TYPES.register("teleporter", () -> new BlockEntityType<>(
+                    TeleporterBlockEntity::new, ModBlocks.TELEPORTER.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ColorControllerBlockEntity>> COLOR_CONTROLLER =
+            BLOCK_ENTITY_TYPES.register("color_controller", () -> new BlockEntityType<>(
+                    ColorControllerBlockEntity::new, ModBlocks.DESTINATION_CONTROLLER.get(), ModBlocks.RECEIVER.get()));
 
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.Energy.BLOCK, GENERATOR.get(),

@@ -2,6 +2,10 @@ package com.example.tutorialmod.registration;
 
 import com.example.tutorialmod.TutorialMod;
 import com.example.tutorialmod.block.TutorialBlock;
+import com.example.tutorialmod.block.MultiblockBlock;
+import com.example.tutorialmod.block.ColorControllerBlock;
+import com.example.tutorialmod.block.TeleporterBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import com.example.tutorialmod.block.GeneratorBlock;
 import com.example.tutorialmod.block.PigSpawnerBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -32,6 +36,22 @@ public final class ModBlocks {
             properties -> properties.mapColor(MapColor.METAL).strength(3.0F)
                     .sound(SoundType.METAL).noOcclusion()
     );
+
+    public static final DeferredBlock<MultiblockBlock> TELEPORTER_BASE = BLOCKS.registerBlock(
+            "teleporter_base", MultiblockBlock::new, ModBlocks::multiblockProperties);
+    public static final DeferredBlock<MultiblockBlock> RECEIVER_BASE = BLOCKS.registerBlock(
+            "receiver_base", MultiblockBlock::new, ModBlocks::multiblockProperties);
+    public static final DeferredBlock<TeleporterBlock> TELEPORTER = BLOCKS.registerBlock(
+            "teleporter", TeleporterBlock::new, ModBlocks::multiblockProperties);
+    public static final DeferredBlock<ColorControllerBlock> DESTINATION_CONTROLLER = BLOCKS.registerBlock(
+            "destination_controller", properties -> new ColorControllerBlock(properties, false), ModBlocks::multiblockProperties);
+    public static final DeferredBlock<ColorControllerBlock> RECEIVER = BLOCKS.registerBlock(
+            "receiver", properties -> new ColorControllerBlock(properties, true), ModBlocks::multiblockProperties);
+
+    private static BlockBehaviour.Properties multiblockProperties(BlockBehaviour.Properties properties) {
+        return properties.mapColor(MapColor.METAL).strength(3.0F)
+                .sound(SoundType.METAL).noOcclusion();
+    }
 
     private ModBlocks() {
     }

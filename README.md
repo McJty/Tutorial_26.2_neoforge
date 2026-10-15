@@ -8,7 +8,7 @@ A small, beginner-friendly starting point for a Minecraft NeoForge mod.
 - IntelliJ IDEA (recommended) or another Java IDE
 - An internet connection for the first Gradle setup
 
-The project uses Minecraft 26.2 and NeoForge 26.2.0.72. Gradle can download a
+The project uses Minecraft 26.2 and NeoForge 26.2.0.75. Gradle can download a
 Java 25 toolchain automatically if your installed Java version is different.
 
 ## Open the project
@@ -25,8 +25,14 @@ Use `gradlew.bat` instead of `./gradlew` on Windows.
 # Start Minecraft with the mod installed
 ./gradlew runClient
 
+# Regenerate models, recipes, loot tables, and translations
+./gradlew runClientData runServerData
+
 # Compile and package the mod
 ./gradlew build
+
+# Run the machine and multiblock GameTests
+./gradlew runGameTestServer -Pexclude_optional_mods
 ```
 
 The built mod JAR appears in `build/libs/`.
@@ -40,9 +46,11 @@ gradle.properties     Minecraft, NeoForge, and mod settings
 build.gradle          Build and development-run setup
 ```
 
-The starting mod only writes `Tutorial Mod is loading!` to the game log. This
-keeps the first project focused on setup; blocks, items, and other features can
-be added one concept at a time in later tutorials.
+The project includes the examples through tutorial 6: blocks and data
+generation, block entities, JEI and The One Probe integrations, energy machines,
+and color coded teleporter and receiver multiblocks. The Tutorial Mod creative
+tab contains all five mod items. See [porting.txt](porting.txt) for the changes
+needed to port the multiblock tutorial from Minecraft 1.21.1 to 26.2.
 
 ## Renaming the mod
 

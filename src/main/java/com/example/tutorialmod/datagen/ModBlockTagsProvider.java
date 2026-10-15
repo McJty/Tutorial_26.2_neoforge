@@ -27,6 +27,11 @@ public final class ModBlockTagsProvider extends BlockTagsProvider {
                 ResourceKey.create(Registries.BLOCK,
                         Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "generator")),
                 ResourceKey.create(Registries.BLOCK,
-                        Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "pig_spawner")));
+                        Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "pig_spawner")),
+                ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "teleporter_base")),
+                ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "receiver_base")),
+                ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "teleporter")),
+                ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "destination_controller")),
+                ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "receiver")));
     }
 }
